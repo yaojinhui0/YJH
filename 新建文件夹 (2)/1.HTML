@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><P></P>
+    <P>    DATA SEGMENT  </P>  
+        <P>  VARX DW 10D</P>
+            <P> VARY DW 5D</P>
+                <P> VARZ DW 0  </P>                            
+                    <P>DATA ENDS</P>
+
+                        <P>CODE SEGMENT</P>
+                            <P>  ASSUME CS:CODE,DS:DATA</P>
+
+                                <P>START:    </P>
+                                    <P>   MOV AX,DATA       ; 将数据段的地址加载到 AX</P>
+                                        <P> MOV DS,AX         ; 将数据段地址传送到 DS</P>
+                                            <P>  MOV AX,0          ; 清空 AX 寄存器</P>
+                                                <P> MOV AX,VARX       ; 将 VARX 的值加载到 AX 寄存器</P>
+                                                    <P> SHL  AX,1         ; 左移 1 位，相当于乘以 2</P>
+                                                        <P>ADD AX,VARX       ; AX = AX + VARX，等价于 AX = 2 * VARX + VARX</P>
+                                                            <P> ADD AX,VARY       ; AX = AX + VARY，结果是 AX = 3 * VARX + VARY</P>
+                                                                <P>  SUB AX,5          ; AX = AX - 5</P>
+   <P> SHR AX,1          ; 右移 1 位，相当于除以 2</P>
+
+</body>
+</html>
